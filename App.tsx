@@ -1,10 +1,20 @@
 import { View, StatusBar, StyleSheet, SafeAreaView } from 'react-native';
 import LoginScreen from './screens/LoginScreen';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
+import SignUpScreen from './screens/SignUpScreen';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-   <LoginScreen/>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name='LoginScreen' component={LoginScreen} />
+        <Stack.Screen name='SignUpScreen' component={SignUpScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 

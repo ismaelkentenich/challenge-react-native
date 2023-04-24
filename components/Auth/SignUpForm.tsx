@@ -1,17 +1,17 @@
 import { View, StyleSheet } from 'react-native';
 import Input from "./Input";
 
-
-function LoginForm(){
+function SignUpForm(){
     return(
         <View style={styles.container}>
-            <Input placeholder="Your email"/>
-            <Input placeholder="Your password" />
+            <Input placeholder='Your email'/>
+            <Input placeholder='username'/>
+            <Input placeholder='Your password'/>
         </View>
     );
 }
 
-export default LoginForm;
+export default SignUpForm;
 
 const styles = StyleSheet.create({
     container: {

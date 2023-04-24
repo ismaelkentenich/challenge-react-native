@@ -1,12 +1,23 @@
 import { View, Text, Pressable, StyleSheet } from "react-native";
-
+import React, { useState } from 'react';
 import Colors from "../../constants/colors";
 
-function PrimaryButton({ children }: any) {
+function PrimaryButton({ children, onPress}: any) {
+  const [pressed, setPressed] = useState(false);
+
+  const handlePressIn = () => setPressed(true);
+  const handlePressOut = () => setPressed(false);
+
   return (
-    <View style={styles.button}>
-      <Text style={styles.buttonText}>{children}</Text>
-    </View>
+    <Pressable 
+      onPress={onPress}
+      onPressIn={() => setPressed(true)}
+      onPressOut={() => setPressed(false)}
+      >
+      <View style={[styles.button, pressed && styles.pressed]}>
+        <Text style={styles.buttonText}>{children}</Text>
+      </View>
+    </Pressable>
   );
 }
 
@@ -28,4 +39,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textTransform: "uppercase",
   },
+  pressed: {
+    opacity: 0.7,  
+  }
 });

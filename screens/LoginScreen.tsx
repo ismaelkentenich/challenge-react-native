@@ -1,10 +1,11 @@
-import { View, StyleSheet, Text} from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 
 import PrimaryButton from "../components/UI/PrimaryButton";
 import { StatusBar } from "expo-status-bar";
 import Colors from "../constants/colors";
 import Title from "../components/UI/Title";
-import LoginForm from "../components/Auth/LoginForm"
+import LoginForm from "../components/Auth/LoginForm";
+
 
 function LoginScreen() {
   return (
@@ -14,16 +15,16 @@ function LoginScreen() {
         <View style={styles.titleContainer}>
           <Title style={styles.title}>Welcome</Title>
         </View>
-        <LoginForm/>
+        <LoginForm />
         <PrimaryButton>LOGIN</PrimaryButton>
       </View>
-        <View style={styles.footerContainer}>
-              <View style={styles.line} />
-              <View style={styles.footer}>
-                  <Text style={styles.questionText}>Don't have an account?</Text>
-                  <Text style={styles.actionText}>Sign up</Text>
-              </View>   
+      <View style={styles.footerContainer}>
+        <View style={styles.line} />
+        <View style={styles.footer}>
+          <Text style={styles.questionText}>Don't have an account?</Text>
+          <Text style={styles.actionText}>Sign up</Text>
         </View>
+      </View>
     </View>
   );
 }
@@ -35,38 +36,38 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.background,
   },
-  container:{
-    alignItems: 'center',
+  container: {
+    alignItems: "center",
     marginTop: 170,
   },
-  title :{
-    textAlign: 'center',
+  title: {
+    textAlign: "center",
   },
   titleContainer: {
     marginBottom: 80,
   },
   footerContainer: {
     padding: 10,
-    width: '100%',
+    width: "100%",
     position: "absolute",
     bottom: 0,
     marginBottom: 30,
   },
-  footer:{
+  footer: {
     flexDirection: "row",
-    justifyContent: 'center',
+    justifyContent: "center",
   },
-  questionText:{
+  questionText: {
     color: Colors.whiteish,
   },
   actionText: {
     marginLeft: 5,
     color: Colors.primary100,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   line: {
-  borderBottomWidth: 0.7,
-  borderBottomColor: Colors.primary100, 
-  marginBottom: 20, 
+    borderBottomWidth: 0.7,
+    borderBottomColor: Colors.primary100,
+    marginBottom: 20,
   },
 });
