@@ -5,10 +5,10 @@ import Input from "./Input";
 function LoginForm(){
     return(
         <View>
-            <View style={styles.inputContainer} >
+            <View>
                 <Input placeholder="Your email"/>
             </View>
-            <View style={styles.inputContainer} >
+            <View>
                 <Input placeholder="Your password" />
             </View>
         </View>
@@ -16,10 +16,3 @@ function LoginForm(){
 }
 
 export default LoginForm;
-
-const styles = StyleSheet.create({
-    inputContainer: {
-       padding: 5,
-       //margin: 5,
-    }
-})

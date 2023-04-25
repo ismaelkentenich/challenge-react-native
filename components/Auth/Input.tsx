@@ -20,7 +20,7 @@ export default Input;
 const styles = StyleSheet.create({
   inputBox: {
     backgroundColor: Colors.primary200,
-    width: 350,
+    width: 330,
     height: 55,
     borderRadius: 25,
     padding: 15,
