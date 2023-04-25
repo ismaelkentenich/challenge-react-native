@@ -36,7 +36,6 @@ function SignUpScreen({ navigation }: Props) {
         </View>
 
         <SignUpForm />
-        <PrimaryButton> Create </PrimaryButton>
 
       </View>
 
@@ -61,7 +60,7 @@ const styles = StyleSheet.create({
   },
   container: {
     alignItems: "center",
-    marginTop: 170,
+    marginTop: 140,
   },
   title: {
     textAlign: "center",

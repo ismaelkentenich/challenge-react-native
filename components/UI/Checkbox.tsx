@@ -30,22 +30,22 @@ function Checkbox(){
 export default Checkbox;
 
 const styles = StyleSheet.create({
-    checkBoxContainer: {
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: 'center',
-        padding: 3,
-      },
-      checkBoxTextCont: {
-        flexDirection: "row",
-      },
-      checkBoxText: {
-        color: Colors.whiteish,
-        padding: 2,
-        fontSize: 9,
-      },
-      checkBoxTerms: {
-        fontWeight: "bold",
-        textDecorationLine: 'underline',
-      },
+  checkBoxContainer: {
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: 'center',
+      padding: 3,
+    },
+    checkBoxTextCont: {
+      flexDirection: "row",
+    },
+    checkBoxText: {
+      color: Colors.whiteish,
+      padding: 2,
+      fontSize: 9,
+    },
+    checkBoxTerms: {
+      fontWeight: "bold",
+      textDecorationLine: 'underline',
+    },
 })

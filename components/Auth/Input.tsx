@@ -1,7 +1,7 @@
 import { View, TextInput, StyleSheet, Image } from "react-native";
 import Colors from "../../constants/colors";
 
-function Input({ placeholder, value, keyboardType, secure, onChangeText }: any) {
+function Input({ placeholder, value, keyboardType, secure, onChangeText, onFocus, error }: any) {
   return (
     <View style={styles.inputContainer}>
       <TextInput
@@ -13,6 +13,7 @@ function Input({ placeholder, value, keyboardType, secure, onChangeText }: any) 
         secureTextEntry={secure}
         keyboardType={keyboardType}
         onChangeText={onChangeText}
+        onFocus={onFocus}
       />
     </View>
   );

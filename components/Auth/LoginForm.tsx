@@ -32,6 +32,7 @@ function LoginForm(){
                 value={email}
                 keyboardType='email-address'
                 onChangeText={setEmail}
+                onFocus={() => setShowErrorEmail(false)}
                 />
             </View>
 
@@ -45,10 +46,11 @@ function LoginForm(){
                 value={password}
                 secure
                 onChangeText={setPassword}
+                onFocus={() => setShowErrorPassword(false)}
                 />
             </View>
             
-            <View>
+            <View style={styles.errorContainer}>
                 {showErrorPassword && <Text style={styles.errorMessage}>Please enter a valid password.</Text>}
             </View>
 
