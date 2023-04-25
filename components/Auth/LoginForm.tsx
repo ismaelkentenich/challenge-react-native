@@ -4,9 +4,13 @@ import Input from "./Input";
 
 function LoginForm(){
     return(
-        <View style={styles.container}>
-            <Input placeholder="Your email"/>
-            <Input placeholder="Your password" />
+        <View>
+            <View style={styles.inputContainer} >
+                <Input placeholder="Your email"/>
+            </View>
+            <View style={styles.inputContainer} >
+                <Input placeholder="Your password" />
+            </View>
         </View>
     );
 }
@@ -14,7 +18,8 @@ function LoginForm(){
 export default LoginForm;
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
+    inputContainer: {
+       padding: 5,
+       //margin: 5,
     }
 })

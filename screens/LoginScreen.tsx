@@ -1,4 +1,4 @@
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
 
 import PrimaryButton from "../components/UI/PrimaryButton";
 import { StatusBar } from "expo-status-bar";
@@ -8,14 +8,19 @@ import LoginForm from "../components/Auth/LoginForm";
 
 import { useNavigation } from '@react-navigation/native';
 import SignUpScreen from "./SignUpScreen";
+import { StackNavigationProp } from '@react-navigation/stack';
 
+type RootStackParamList = {
+  SignUp: undefined,
+  Login: undefined,
+}
 
-function LoginScreen() {
-  const navigation = useNavigation();
+type LoginScreenNavigationProp = StackNavigationProp<RootStackParamList, 'SignUp'>;
+
+type Props = { navigation: LoginScreenNavigationProp};
+
+function LoginScreen({navigation}: Props) {
   
-  function handlePress(){
-  }
-
   return (
     <View style={styles.safeContainer}>
       <StatusBar style="light" />
@@ -23,15 +28,19 @@ function LoginScreen() {
         <View style={styles.titleContainer}>
           <Title style={styles.title}>Welcome</Title>
         </View>
-        <LoginForm />
-        <PrimaryButton>LOGIN</PrimaryButton>
+          <LoginForm />
+        <View>
+          <PrimaryButton>LOGIN</PrimaryButton>
+        </View> 
       </View>
       
       <View style={styles.footerContainer}>
         <View style={styles.line} />
         <View style={styles.footer}>
           <Text style={styles.questionText}>Don't have an account?</Text>
-          <Text style={styles.actionText}>Sign up</Text>
+          <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
+            <Text style={styles.actionText}>Sign up</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </View>
@@ -46,7 +55,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.background,
   },
   container: {
-    alignItems: "center",
+   alignItems: "center",
     marginTop: 170,
   },
   title: {
