@@ -1,52 +1,77 @@
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import Input from "./Input";
 import { useState } from 'react';
+import Colors from '../../constants/colors';
+import PrimaryButton from '../UI/PrimaryButton';
 
-function AuthForm({ isLogin, onSubmit, credentialsInvalid } : any){
-    const [enteredEmail, setEnteredEmail] = useState('');
-    const [enteredPassword, setEnteredPassword] = useState('');
-
-    const {
-        email: emailIsInvalid,
-        password: passwordIsInvalid,
-    } = credentialsInvalid;
-
-    function updateInvalidValueHandler({inputType, enteredValue}: any) {
-        switch(inputType){
-            case 'email':
-                setEnteredEmail(enteredValue);
-                break;
-            case 'password':
-                setEnteredPassword(enteredPassword);
-                break;    
-        }
-    }
-
-    function submitHandler(){
-        onSubmit({
-            email: enteredEmail,
-            password: enteredPassword
-        });
-    }
-}
 
 function LoginForm(){
 
+    const [showErrorEmail, setShowErrorEmail] = useState(false);
+    const [showErrorPassword, setShowErrorPassword] = useState(false);
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const handleLogin = () => {
+        if (email.trim() === "") {
+            setShowErrorEmail(true);
+        }
+        if (password.trim() === "") {
+            setShowErrorPassword(true);
+        }else {
+            // TO DO - GO TO HOME PAGE
+            console.log("LOGIN REALIZADO");
+        }
+    }
+
     return(
-        <View>
+        <View style={styles.container}>
             <View>
                 <Input 
                 placeholder="Your email"
-                value='enteredEmail'
+                value={email}
                 keyboardType='email-address'
-                secure
+                onChangeText={setEmail}
                 />
             </View>
+
+            <View style={styles.errorContainer}>
+                {showErrorEmail && <Text style={styles.errorMessage}>Please enter a valid email address.</Text>}
+            </View>
+            
             <View>
-                <Input placeholder="Your password"/>
+                <Input 
+                placeholder="Your password"
+                value={password}
+                secure
+                onChangeText={setPassword}
+                />
+            </View>
+            
+            <View>
+                {showErrorPassword && <Text style={styles.errorMessage}>Please enter a valid password.</Text>}
+            </View>
+
+            <View>
+                <PrimaryButton onPress={handleLogin}> Login </PrimaryButton>
             </View>
         </View>
     );
 }
 
 export default LoginForm;
+
+const styles = StyleSheet.create({
+    container:{
+        //justifyContent:'center',
+        //alignContent:'center',
+        alignItems: 'center',
+    },
+    errorMessage:{
+        color: Colors.warning,
+        fontSize: 12,
+    },
+    errorContainer: {
+        justifyContent: 'flex-start'
+    },
+})
