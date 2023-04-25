@@ -6,8 +6,16 @@ import Colors from "../constants/colors";
 import Title from "../components/UI/Title";
 import LoginForm from "../components/Auth/LoginForm";
 
+import { useNavigation } from '@react-navigation/native';
+import SignUpScreen from "./SignUpScreen";
+
 
 function LoginScreen() {
+  const navigation = useNavigation();
+  
+  function handlePress(){
+  }
+
   return (
     <View style={styles.safeContainer}>
       <StatusBar style="light" />
@@ -18,6 +26,7 @@ function LoginScreen() {
         <LoginForm />
         <PrimaryButton>LOGIN</PrimaryButton>
       </View>
+      
       <View style={styles.footerContainer}>
         <View style={styles.line} />
         <View style={styles.footer}>
