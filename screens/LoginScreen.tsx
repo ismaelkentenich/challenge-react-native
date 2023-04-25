@@ -6,8 +6,6 @@ import Colors from "../constants/colors";
 import Title from "../components/UI/Title";
 import LoginForm from "../components/Auth/LoginForm";
 
-import { useNavigation } from '@react-navigation/native';
-import SignUpScreen from "./SignUpScreen";
 import { StackNavigationProp } from '@react-navigation/stack';
 
 type RootStackParamList = {
