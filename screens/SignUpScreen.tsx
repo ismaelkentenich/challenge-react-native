@@ -2,13 +2,9 @@ import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import Title from "../components/UI/Title";
 import SignUpForm from "../components/Auth/SignUpForm";
-import PrimaryButton from "../components/UI/PrimaryButton";
 import Colors from "../constants/colors";
 import { useState } from "react";
-import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { CheckBox } from "react-native-elements";
-import Checkbox from "../components/UI/Checkbox";
 
 type RootStackParamList = {
   SignUp: undefined;
@@ -60,7 +56,7 @@ const styles = StyleSheet.create({
   },
   container: {
     alignItems: "center",
-    marginTop: 140,
+    marginTop: 130,
   },
   title: {
     textAlign: "center",

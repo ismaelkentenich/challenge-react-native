@@ -74,6 +74,7 @@ const styles = StyleSheet.create({
         fontSize: 12,
     },
     errorContainer: {
-        justifyContent: 'flex-start'
+        alignSelf: 'flex-start',
+        marginLeft: 40,
     },
 })
