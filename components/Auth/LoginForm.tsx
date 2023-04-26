@@ -4,8 +4,8 @@ import { useState } from 'react';
 import Colors from '../../constants/colors';
 import PrimaryButton from '../UI/PrimaryButton';
 
-
 function LoginForm(){
+    
 
     const [showErrorEmail, setShowErrorEmail] = useState(false);
     const [showErrorPassword, setShowErrorPassword] = useState(false);
@@ -19,7 +19,7 @@ function LoginForm(){
         if (password.trim() === "") {
             setShowErrorPassword(true);
         }else {
-            // TO DO - GO TO HOME PAGE
+           //TO DO
             console.log("LOGIN REALIZADO");
         }
     }
@@ -33,6 +33,7 @@ function LoginForm(){
                 keyboardType='email-address'
                 onChangeText={setEmail}
                 onFocus={() => setShowErrorEmail(false)}
+                error={showErrorEmail}
                 />
             </View>
 
@@ -47,6 +48,7 @@ function LoginForm(){
                 secure
                 onChangeText={setPassword}
                 onFocus={() => setShowErrorPassword(false)}
+                error={showErrorPassword}
                 />
             </View>
             

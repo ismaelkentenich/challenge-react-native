@@ -51,20 +51,20 @@ function SignUpForm(){
     return(
         <View>
             <View>
-                <View style={styles.formContainer}>
-                    <View>
-                        <Input 
+                <View>
+                    <Input 
                         placeholder='Your email'
                         value={email}
                         keyboardType='email-address'
                         onChangeText={setEmail}
                         onFocus={() => setShowErrorEmail(false)}
-                        />
-                    </View>
-                    <View style={styles.errorContainer}>
-                        {showErrorEmail && <Text style={styles.errorMessage}>Please enter a valid email address.</Text>}
-                    </View>
+                        error={showErrorEmail}
+                    />
                 </View>
+                <View style={styles.errorContainer}>
+                    {showErrorEmail && <Text style={styles.errorMessage}>Please enter a valid email address.</Text>}
+            </View>
+                
 
                 <View>
                     <Input 
@@ -72,6 +72,7 @@ function SignUpForm(){
                     value={username}
                     onChangeText={setUsername}
                     onFocus={() => setShowErrorUsername(false)}
+                    error={showErrorUsername}
                     />
                 </View>
                 <View style={styles.errorContainer}>
@@ -85,6 +86,7 @@ function SignUpForm(){
                     secure
                     onChangeText={setPassword}
                     onFocus={() => setShowErrorPassword(false)}
+                    error={showErrorPassword}
                     />
                 </View>
                 <View style={styles.errorContainer}>
@@ -102,7 +104,7 @@ function SignUpForm(){
                             checkedIcon="check-square"
                             uncheckedIcon="square-o"
                             checkedColor="#D78F3C"
-                            uncheckedColor="white"
+                            uncheckedColor={showErrorCheckbox ? Colors.warning : Colors.whiteish}
                         />
                     </View> 
                     <View style={styles.checkBoxTextCont}>
@@ -128,10 +130,6 @@ const styles = StyleSheet.create({
         //justifyContent:'center',
         //alignContent:'center',
         //alignItems: 'center',
-    },
-    formContainer:{
-       // flexDirection: 'column', 
-        //alignItems: 'center'
     },
     errorMessage:{
         color: Colors.warning,

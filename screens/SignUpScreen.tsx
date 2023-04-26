@@ -3,7 +3,6 @@ import { StatusBar } from "expo-status-bar";
 import Title from "../components/UI/Title";
 import SignUpForm from "../components/Auth/SignUpForm";
 import Colors from "../constants/colors";
-import { useState } from "react";
 import { StackNavigationProp } from "@react-navigation/stack";
 
 type RootStackParamList = {
@@ -11,15 +10,11 @@ type RootStackParamList = {
   Login: undefined;
 };
 
-type SignUpScreenNavigationProp = StackNavigationProp<
-  RootStackParamList,
-  "SignUp"
->;
+type SignUpScreenNavigationProp = StackNavigationProp<RootStackParamList,"SignUp">;
 
 type Props = { navigation: SignUpScreenNavigationProp };
 
 function SignUpScreen({ navigation }: Props) {
-  const [isSelected, setSelected] = useState(false);
 
   return (
     <View style={styles.safeContainer}>
