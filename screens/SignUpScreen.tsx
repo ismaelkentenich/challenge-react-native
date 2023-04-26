@@ -1,4 +1,4 @@
-import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { View, StyleSheet, Text, TouchableOpacity, Image } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import Title from "../components/UI/Title";
 import SignUpForm from "../components/Auth/SignUpForm";
@@ -14,12 +14,17 @@ type SignUpScreenNavigationProp = StackNavigationProp<RootStackParamList,"SignUp
 
 type Props = { navigation: SignUpScreenNavigationProp };
 
-function SignUpScreen({ navigation }: Props) {
+function SignUpScreen({navigation}: Props) {
 
   return (
     <View style={styles.safeContainer}>
 
       <StatusBar style="light" />
+      <View style={styles.backContainer}>
+        <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+          <Image source={require('../assets/images/arrow.png')} style={styles.arrowButton}/>
+        </TouchableOpacity>
+      </View>
 
       <View style={styles.container}>
         <View style={styles.titleContainer}>
@@ -51,7 +56,7 @@ const styles = StyleSheet.create({
   },
   container: {
     alignItems: "center",
-    marginTop: 130,
+    marginTop: 90,
   },
   title: {
     textAlign: "center",
@@ -87,4 +92,13 @@ const styles = StyleSheet.create({
     borderBottomColor: Colors.primary100,
     marginBottom: 20,
   },
+  backContainer:{
+    marginTop: 50,
+    marginLeft: 25,
+  },
+  arrowButton: {
+    padding: 5,
+    width: 30,
+    resizeMode: 'contain',
+  }
 });
