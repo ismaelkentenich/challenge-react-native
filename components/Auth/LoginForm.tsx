@@ -20,12 +20,18 @@ function LoginForm(){
     const [password, setPassword] = useState("");
 
     const handleLogin = () => {
+
+        let hasError = false;
+        
         if (email.trim() === "") {
             setShowErrorEmail(true);
+            hasError = true;
         }
         if (password.trim() === "") {
             setShowErrorPassword(true);
-        }else {
+            hasError = true;
+        }
+        if(!hasError) {
             navigation.navigate('Home');
             //console.log("LOGIN REALIZADO");
         }
