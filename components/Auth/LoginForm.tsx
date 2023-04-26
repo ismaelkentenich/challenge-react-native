@@ -5,7 +5,6 @@ import Colors from '../../constants/colors';
 import PrimaryButton from '../UI/PrimaryButton';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import Images from '../../constants/Images';
 
 type RootStackParamList = {Home: undefined;};
 
