@@ -34,13 +34,14 @@ function LoginForm(){
     return(
         <View style={styles.container}>
             <View>
-                <Input 
+                <Input
                 placeholder="Your email"
                 value={email}
-                keyboardType='email-address'
                 onChangeText={setEmail}
                 onFocus={() => setShowErrorEmail(false)}
                 error={showErrorEmail}
+                secure={false}
+                image={require('../../assets/images/icon _mail_.png')}
                 />
             </View>
 
@@ -52,10 +53,11 @@ function LoginForm(){
                 <Input 
                 placeholder="Your password"
                 value={password}
-                secure
+                secure={true}
                 onChangeText={setPassword}
                 onFocus={() => setShowErrorPassword(false)}
                 error={showErrorPassword}
+                image={require('../../assets/images/icon _lock_.png')}
                 />
             </View>
             

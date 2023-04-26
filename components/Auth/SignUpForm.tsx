@@ -63,11 +63,12 @@ function SignUpForm(){
                     <Input 
                         placeholder='Your email'
                         value={email}
-                        keyboardType='email-address'
                         onChangeText={setEmail}
                         onFocus={() => setShowErrorEmail(false)}
                         error={showErrorEmail}
-                    />
+                        secure={false}
+                        image={require('../../assets/images/icon _mail_.png')}
+                    /> 
                 </View>
                 <View style={styles.errorContainer}>
                     {showErrorEmail && <Text style={styles.errorMessage}>Please enter a valid email address.</Text>}
@@ -81,6 +82,8 @@ function SignUpForm(){
                     onChangeText={setUsername}
                     onFocus={() => setShowErrorUsername(false)}
                     error={showErrorUsername}
+                    secure={false}
+                    image={require('../../assets/images/icon _mail_.png')}
                     />
                 </View>
                 <View style={styles.errorContainer}>
@@ -95,7 +98,8 @@ function SignUpForm(){
                     onChangeText={setPassword}
                     onFocus={() => setShowErrorPassword(false)}
                     error={showErrorPassword}
-                    />
+                    image={require('../../assets/images/icon _mail_.png')}
+                    /> 
                 </View>
                 <View style={styles.errorContainer}>
                     {showErrorPassword && <Text style={styles.errorMessage}>Please enter a valid password.</Text>}

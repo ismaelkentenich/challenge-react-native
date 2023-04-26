@@ -1,20 +1,32 @@
-import { View, TextInput, StyleSheet, Image } from "react-native";
+import { View, TextInput, StyleSheet, Image, ImageSourcePropType } from "react-native";
 import Colors from "../../constants/colors";
+import {imageLink} from "../../constants/Images";
 
-function Input({ style, placeholder, value, keyboardType, secure, onChangeText, onFocus, error }: any) {
+type Props = {
+  image: ImageSourcePropType,
+  placeholder: string,
+  secure: boolean,
+  value: any,
+  onChangeText: any,
+  onFocus: any,
+  error: any,
+}
+
+
+function Input({placeholder, value, secure, onChangeText, onFocus, error, image}: Props, {style}: any) {
+
   return (
-    <View style={styles.inputContainer}>
+    <View style={[styles.inputContainer, style, error && styles.inputError]}>
+      <Image source={image} resizeMode="contain"/>
       <TextInput
-       // style={styles.inputBox}
-        style={[styles.inputBox, style, error && styles.inputError]}
-        autoCapitalize="none"
+        style={styles.inputBox}
         placeholder={placeholder}
-        placeholderTextColor="#A8A8A8"
+        placeholderTextColor={Colors.primary300}
         value={value}
         secureTextEntry={secure}
-        keyboardType={keyboardType}
         onChangeText={onChangeText}
         onFocus={onFocus}
+        autoCapitalize="none"
       />
     </View>
   );
@@ -23,20 +35,26 @@ function Input({ style, placeholder, value, keyboardType, secure, onChangeText, 
 export default Input;
 
 const styles = StyleSheet.create({
-  inputBox: {
+  inputContainer: {
     backgroundColor: Colors.primary200,
+    flexDirection: 'row',
+    alignItems: 'center',
     width: 330,
     height: 55,
     borderRadius: 25,
-    padding: 15,
-    fontSize: 16,
-    borderColor: Colors.primary200,
-    borderWidth: 1,
-  },
-  inputContainer: {
-    padding: 5,
+    padding: 10,
     marginTop: 10,
     marginBottom: 10,
+    borderColor: Colors.primary200,
+    borderWidth: 1,
+    color: Colors.primary300,
+  },
+  inputBox: {
+    fontSize: 16,
+    color: Colors.primary300,
+    //borderColor: Colors.primary200,
+    width: '80%',
+    height: '80%',    
   },
   inputError: {
     borderColor: Colors.warning,

@@ -1,6 +1,5 @@
 import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
 
-import PrimaryButton from "../components/UI/PrimaryButton";
 import { StatusBar } from "expo-status-bar";
 import Colors from "../constants/colors";
 import Title from "../components/UI/Title";
