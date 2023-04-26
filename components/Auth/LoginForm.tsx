@@ -5,6 +5,7 @@ import Colors from '../../constants/colors';
 import PrimaryButton from '../UI/PrimaryButton';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
+import Images from '../../constants/Images';
 
 type RootStackParamList = {Home: undefined;};
 
@@ -41,7 +42,7 @@ function LoginForm(){
                 onFocus={() => setShowErrorEmail(false)}
                 error={showErrorEmail}
                 secure={false}
-                image={require('../../assets/images/icon _mail_.png')}
+                image={require('../../assets/images/icon-mail.png')}
                 />
             </View>
 
@@ -57,7 +58,7 @@ function LoginForm(){
                 onChangeText={setPassword}
                 onFocus={() => setShowErrorPassword(false)}
                 error={showErrorPassword}
-                image={require('../../assets/images/icon _lock_.png')}
+                image={require('../../assets/images/icon-password.png')}
                 />
             </View>
             

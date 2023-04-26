@@ -67,7 +67,7 @@ function SignUpForm(){
                         onFocus={() => setShowErrorEmail(false)}
                         error={showErrorEmail}
                         secure={false}
-                        image={require('../../assets/images/icon _mail_.png')}
+                        image={require('../../assets/images/icon-mail.png')}
                     /> 
                 </View>
                 <View style={styles.errorContainer}>
@@ -83,7 +83,7 @@ function SignUpForm(){
                     onFocus={() => setShowErrorUsername(false)}
                     error={showErrorUsername}
                     secure={false}
-                    image={require('../../assets/images/icon _mail_.png')}
+                    image={require('../../assets/images/icon-user.png')}
                     />
                 </View>
                 <View style={styles.errorContainer}>
@@ -98,7 +98,7 @@ function SignUpForm(){
                     onChangeText={setPassword}
                     onFocus={() => setShowErrorPassword(false)}
                     error={showErrorPassword}
-                    image={require('../../assets/images/icon _mail_.png')}
+                    image={require('../../assets/images/icon-password.png')}
                     /> 
                 </View>
                 <View style={styles.errorContainer}>

@@ -1,6 +1,5 @@
 import { View, TextInput, StyleSheet, Image, ImageSourcePropType } from "react-native";
 import Colors from "../../constants/colors";
-import {imageLink} from "../../constants/Images";
 
 type Props = {
   image: ImageSourcePropType,
@@ -17,7 +16,7 @@ function Input({placeholder, value, secure, onChangeText, onFocus, error, image}
 
   return (
     <View style={[styles.inputContainer, style, error && styles.inputError]}>
-      <Image source={image} resizeMode="contain"/>
+      <Image source={image} style={styles.inputImage} />
       <TextInput
         style={styles.inputBox}
         placeholder={placeholder}
@@ -53,10 +52,18 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: Colors.primary300,
     //borderColor: Colors.primary200,
-    width: '80%',
-    height: '80%',    
+    width: '85%',
+    height: '100%',
+    borderColor: 'blue',
+    borderWidth: 1,  
   },
   inputError: {
     borderColor: Colors.warning,
   },
+  inputImage:{
+    margin: 5,
+    width: 20,
+    height: 20,
+    resizeMode: 'contain',
+  }
 });
