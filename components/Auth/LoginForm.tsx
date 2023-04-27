@@ -4,17 +4,15 @@ import Input from "./Input";
 
 function LoginForm(){
     return(
-        <View style={styles.container}>
-            <Input placeholder="Your email"/>
-            <Input placeholder="Your password" />
+        <View>
+            <View>
+                <Input placeholder="Your email"/>
+            </View>
+            <View>
+                <Input placeholder="Your password" />
+            </View>
         </View>
     );
 }
 
 export default LoginForm;
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    }
-})

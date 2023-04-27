@@ -1,20 +1,24 @@
 import { View, StyleSheet } from 'react-native';
 import Input from "./Input";
+import Checkbox from '../UI/Checkbox';
 
 function SignUpForm(){
     return(
-        <View style={styles.container}>
-            <Input placeholder='Your email'/>
-            <Input placeholder='username'/>
-            <Input placeholder='Your password'/>
+        <View>
+            <View>
+                <View>
+                    <Input placeholder='Your email'/>
+                </View>
+                <View>
+                    <Input placeholder='username'/>
+                </View>
+                <View>
+                    <Input placeholder='Your password'/>
+                </View>
+            </View>
+            <Checkbox />
         </View>
     );
 }
 
 export default SignUpForm;
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    }
-})
