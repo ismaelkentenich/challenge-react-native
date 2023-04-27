@@ -1,21 +1,23 @@
 import { View, Text, Pressable, StyleSheet } from "react-native";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Colors from "../../constants/colors";
+import { Fonts } from "../../constants/fonts";
+import Icon from 'react-native-vector-icons/FontAwesome';
 
-function PrimaryButton({ children, onPress}: any) {
+function PrimaryButton({ children, onPress }: any) {
   const [pressed, setPressed] = useState(false);
 
-  const handlePressIn = () => setPressed(true);
-  const handlePressOut = () => setPressed(false);
-
   return (
-    <Pressable 
+    <Pressable
       onPress={onPress}
       onPressIn={() => setPressed(true)}
       onPressOut={() => setPressed(false)}
-      >
+    >
       <View style={[styles.button, pressed && styles.pressed]}>
-        <Text style={styles.buttonText}>{children}</Text>
+        {!pressed ?
+          <Text style={styles.buttonText}>{children}</Text> :
+          <Icon name="spinner" size={16} color={Colors.whiteish} style={styles.icon} />
+        }
       </View>
     </Pressable>
   );
@@ -33,13 +35,18 @@ const styles = StyleSheet.create({
     marginTop: 15,
   },
   buttonText: {
-    color: "#DBDBDB",
+    color: Colors.whiteish,
     textAlign: "center",
     justifyContent: 'center',
     fontSize: 16,
     textTransform: "uppercase",
+    fontFamily: Fonts.InterRegular,
   },
   pressed: {
-    opacity: 0.7,  
-  }
+    opacity: 0.7,
+  },
+  icon: {
+    alignSelf: 'center',
+    marginRight: 10,
+  },
 });

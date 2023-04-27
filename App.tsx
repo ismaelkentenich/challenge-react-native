@@ -4,20 +4,17 @@ import SignUpScreen from "./screens/SignUpScreen";
 import HomeScreen from "./screens/HomeScreen";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
+import { loadFonts } from "./constants/fonts";
+import { useEffect } from "react";
 
 
 const Stack = createStackNavigator();
 
 export default function App() {
-  return (/*
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="LoginScreen" component={LoginScreen} />
-        <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
-        <Stack.Screen name="HomeScreen" component={HomeScreen} />
-      </Stack.Navigator>
-</NavigationContainer>*/
 
+  useEffect(() => { loadFonts(); }, []);
+  
+  return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Screen name='Login' component={LoginScreen} />
@@ -26,7 +23,6 @@ export default function App() {
       </Stack.Navigator>
     </NavigationContainer>
 
-  //<SignUpScreen/>
   );
 }
 

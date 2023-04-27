@@ -5,6 +5,7 @@ import Colors from '../../constants/colors';
 import PrimaryButton from '../UI/PrimaryButton';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
+import { Fonts } from '../../constants/fonts';
 
 type RootStackParamList = {Home: undefined;};
 
@@ -20,27 +21,33 @@ function LoginForm(){
     const [password, setPassword] = useState("");
 
     const handleLogin = () => {
+
+        let hasError = false;
+        
         if (email.trim() === "") {
             setShowErrorEmail(true);
+            hasError = true;
         }
         if (password.trim() === "") {
             setShowErrorPassword(true);
-        }else {
+            hasError = true;
+        }
+        if(!hasError) {
             navigation.navigate('Home');
-            //console.log("LOGIN REALIZADO");
         }
     }
 
     return(
         <View style={styles.container}>
             <View>
-                <Input 
+                <Input
                 placeholder="Your email"
                 value={email}
-                keyboardType='email-address'
                 onChangeText={setEmail}
                 onFocus={() => setShowErrorEmail(false)}
                 error={showErrorEmail}
+                secure={false}
+                image={require('../../assets/images/icon-mail.png')}
                 />
             </View>
 
@@ -52,10 +59,11 @@ function LoginForm(){
                 <Input 
                 placeholder="Your password"
                 value={password}
-                secure
+                secure={true}
                 onChangeText={setPassword}
                 onFocus={() => setShowErrorPassword(false)}
                 error={showErrorPassword}
+                image={require('../../assets/images/icon-password.png')}
                 />
             </View>
             
@@ -74,13 +82,12 @@ export default LoginForm;
 
 const styles = StyleSheet.create({
     container:{
-        //justifyContent:'center',
-        //alignContent:'center',
         alignItems: 'center',
     },
     errorMessage:{
         color: Colors.warning,
         fontSize: 12,
+        fontFamily: Fonts.InterRegular,
     },
     errorContainer: {
         alignSelf: 'flex-start',

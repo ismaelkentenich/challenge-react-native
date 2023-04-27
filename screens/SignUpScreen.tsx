@@ -1,9 +1,10 @@
-import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { View, StyleSheet, Text, TouchableOpacity, Image, KeyboardAvoidingView, ScrollView } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import Title from "../components/UI/Title";
 import SignUpForm from "../components/Auth/SignUpForm";
 import Colors from "../constants/colors";
 import { StackNavigationProp } from "@react-navigation/stack";
+import Footer from "../components/UI/Footer";
 
 type RootStackParamList = {
   SignUp: undefined;
@@ -14,31 +15,35 @@ type SignUpScreenNavigationProp = StackNavigationProp<RootStackParamList,"SignUp
 
 type Props = { navigation: SignUpScreenNavigationProp };
 
-function SignUpScreen({ navigation }: Props) {
+function SignUpScreen({navigation}: Props) {
 
   return (
+
     <View style={styles.safeContainer}>
-
       <StatusBar style="light" />
+      <View style={styles.backContainer}>
+        <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+          <Image source={require('../assets/images/arrow.png')} style={styles.arrowButton}/>
+        </TouchableOpacity>
+      </View>
+    <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <View style={styles.container}>
+            <View style={styles.titleContainer}>
+                <Title style={styles.title}>Sign Up</Title>
+            </View>
 
-      <View style={styles.container}>
-        <View style={styles.titleContainer}>
-          <Title style={styles.title}>Sign Up</Title>
+            <SignUpForm />
+
         </View>
 
-        <SignUpForm />
-
-      </View>
-
-      <View style={styles.footerContainer}>
-        <View style={styles.line} />
-        <View style={styles.footer}>
-          <Text style={styles.questionText}>Already have an account?</Text>
-          <TouchableOpacity onPress={() => navigation.navigate("Login")}>
-            <Text style={styles.actionText}>Sign in</Text>
-          </TouchableOpacity>
+        <View style={styles.footerContainer}>
+            <Footer 
+                action={() => navigation.navigate('Login')}
+                firstText="Already have an account?"
+                secondText="Sign in"
+            />
         </View>
-      </View>
+        </ScrollView>
     </View>
   );
 }
@@ -51,40 +56,37 @@ const styles = StyleSheet.create({
   },
   container: {
     alignItems: "center",
-    marginTop: 130,
+    marginTop: 75,
   },
   title: {
     textAlign: "center",
   },
   titleContainer: {
-    marginBottom: 80,
+    marginBottom: 70,
   },
   buttonContainer: {
     marginBottom: 200,
   },
-
-  footerContainer: {
-    padding: 10,
-    width: "100%",
-    position: "absolute",
+  footerContainer:{
+    height: 50,
+    marginBottom: 40,
+    marginTop: 80,
     bottom: 0,
-    marginBottom: 30,
+    width: '100%',
   },
-  footer: {
+  footer:{
+    flex: 1,
     flexDirection: "row",
     justifyContent: "center",
+    alignItems: "center",
   },
-  questionText: {
-    color: Colors.whiteish,
+  backContainer:{
+    marginTop: 50,
+    marginLeft: 25,
   },
-  actionText: {
-    marginLeft: 5,
-    color: Colors.primary100,
-    fontWeight: "bold",
-  },
-  line: {
-    borderBottomWidth: 0.7,
-    borderBottomColor: Colors.primary100,
-    marginBottom: 20,
-  },
+  arrowButton: {
+    padding: 5,
+    width: 30,
+    resizeMode: 'contain',
+  }
 });

@@ -12,7 +12,14 @@
       "backgroundColor": "#ffffff"
     },
     "assetBundlePatterns": [
-      "**/*"
+      "**/*",
+      ".assets/fonts/*"
+    ],
+    "fonts": [
+      {
+        "asset": "./assets/fonts/Khula-Regular.ttf",
+        "asset": "./assets/fonts/Inter-Regular.ttf"
+      }
     ],
     "ios": {
       "supportsTablet": true
