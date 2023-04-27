@@ -12,7 +12,7 @@ function HomeScreen(){
     return(
         <View style={styles.safeContainer}>
             <StatusBar style="light" />
-            <View style={styles.container}>
+            <View>
                 <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
                     <Text style={styles.title}>Home</Text>
                     <View style={styles.cardContainer}>
@@ -45,10 +45,6 @@ const styles = StyleSheet.create({
     safeContainer: {
         flex: 1,
         backgroundColor: Colors.background,
-    },
-    container: {
-        //marginTop: 40,
-        //marginLeft: 30,
     },
     title:{
         marginTop: 50,

@@ -52,7 +52,6 @@ function SignUpForm(){
         }
         if (!hasError) {
             navigation.navigate('Home');
-            //console.log("CADASTRO REALIZADO");
         }
     }
     

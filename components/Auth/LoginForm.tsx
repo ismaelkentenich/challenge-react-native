@@ -34,7 +34,6 @@ function LoginForm(){
         }
         if(!hasError) {
             navigation.navigate('Home');
-            //console.log("LOGIN REALIZADO");
         }
     }
 
@@ -83,8 +82,6 @@ export default LoginForm;
 
 const styles = StyleSheet.create({
     container:{
-        //justifyContent:'center',
-        //alignContent:'center',
         alignItems: 'center',
     },
     errorMessage:{

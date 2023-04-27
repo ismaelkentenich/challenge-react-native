@@ -27,15 +27,9 @@ export default Footer;
 
 const styles = StyleSheet.create({
   footerContainer: {
-    //flex: 1,
     padding: 10,
     width: "100%",
     height: 50,
-    //position: "absolute",
-    //bottom: 10,
-    // marginBottom: 30,
-    //marginTop: 50,
-    //backgroundColor: 'red',
   },
   footer: {
     flexDirection: "row",
@@ -44,13 +38,11 @@ const styles = StyleSheet.create({
   },
   questionText: {
     color: Colors.whiteish,
-    // fontFamily:'Inter'
     fontFamily: Fonts.InterRegular,
   },
   actionText: {
     marginLeft: 5,
     color: Colors.primary100,
-    //fontWeight: "bold",
     fontFamily: Fonts.InterSemiBold,
   },
   line: {

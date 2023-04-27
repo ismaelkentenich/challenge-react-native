@@ -14,15 +14,7 @@ export default function App() {
 
   useEffect(() => { loadFonts(); }, []);
   
-  return (/*
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="LoginScreen" component={LoginScreen} />
-        <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
-        <Stack.Screen name="HomeScreen" component={HomeScreen} />
-      </Stack.Navigator>
-</NavigationContainer>*/
-
+  return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Screen name='Login' component={LoginScreen} />
@@ -31,7 +23,6 @@ export default function App() {
       </Stack.Navigator>
     </NavigationContainer>
 
-  //<SignUpScreen/>
   );
 }
 

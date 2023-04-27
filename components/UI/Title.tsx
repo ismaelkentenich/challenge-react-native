@@ -17,7 +17,6 @@ const styles = StyleSheet.create({
         color: Colors.primary100,
         fontSize: 36,
         textTransform: 'uppercase',
-        // fontWeight: '700',
         fontFamily: Fonts.KhulaExtraBold,
     }
 })
