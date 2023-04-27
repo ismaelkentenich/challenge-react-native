@@ -3,9 +3,16 @@ import Input from "./Input";
 import { useState } from 'react';
 import Colors from '../../constants/colors';
 import PrimaryButton from '../UI/PrimaryButton';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+
+type RootStackParamList = {Home: undefined;};
+
+type ProfileScreenNavigationProp = StackNavigationProp<RootStackParamList,'Home'>;
 
 function LoginForm(){
     
+    const navigation = useNavigation<ProfileScreenNavigationProp>();    
 
     const [showErrorEmail, setShowErrorEmail] = useState(false);
     const [showErrorPassword, setShowErrorPassword] = useState(false);
@@ -19,8 +26,8 @@ function LoginForm(){
         if (password.trim() === "") {
             setShowErrorPassword(true);
         }else {
-           //TO DO
-            console.log("LOGIN REALIZADO");
+            navigation.navigate('Home');
+            //console.log("LOGIN REALIZADO");
         }
     }
 

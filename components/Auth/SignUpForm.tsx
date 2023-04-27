@@ -4,8 +4,16 @@ import { CheckBox } from "react-native-elements";
 import { useState } from 'react';
 import Colors from '../../constants/colors';
 import PrimaryButton from '../UI/PrimaryButton';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+
+type RootStackParamList = {Home: undefined;};
+
+type ProfileScreenNavigationProp = StackNavigationProp<RootStackParamList,'Home'>;
 
 function SignUpForm(){
+
+    const navigation = useNavigation<ProfileScreenNavigationProp>(); 
 
     const [checked, setChecked] = useState(false);
     const [showErrorCheckbox, setShowErrorCheckbox] = useState(false);
@@ -42,8 +50,8 @@ function SignUpForm(){
             hasError = true;
         }
         if (!hasError) {
-            // TO DO - GO TO HOME PAGE
-            console.log("CADASTRO REALIZADO");
+            navigation.navigate('Home');
+            //console.log("CADASTRO REALIZADO");
         }
     }
     
