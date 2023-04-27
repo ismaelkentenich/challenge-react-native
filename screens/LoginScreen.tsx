@@ -1,4 +1,4 @@
-import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { View, StyleSheet, Text, TouchableOpacity, KeyboardAvoidingView, ScrollView } from "react-native";
 
 import { StatusBar } from "expo-status-bar";
 import Colors from "../constants/colors";
@@ -6,6 +6,7 @@ import Title from "../components/UI/Title";
 import LoginForm from "../components/Auth/LoginForm";
 
 import { StackNavigationProp } from '@react-navigation/stack';
+import Footer from "../components/UI/Footer";
 
 type RootStackParamList = {
   SignUp: undefined,
@@ -16,32 +17,33 @@ type LoginScreenNavigationProp = StackNavigationProp<RootStackParamList, 'SignUp
 
 type Props = { navigation: LoginScreenNavigationProp};
 
-
-
 function LoginScreen({navigation}: Props) {
   
   return (
     <View style={styles.safeContainer}>
-      <StatusBar style="light" />
-      <View style={styles.container}>
-        <View style={styles.titleContainer}>
-          <Title style={styles.title}>Welcome</Title>
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <StatusBar style="light" />
+        <View style={styles.container}>
+          <View style={styles.titleContainer}>
+            <Title style={styles.title}>Welcome</Title>
+          </View>
+          <View style={styles.formContainer}>
+            <LoginForm />
+          </View>
         </View>
-        <View style={styles.formContainer}>
-          <LoginForm />
-        </View>
-      </View>
       
-      <View style={styles.footerContainer}>
-        <View style={styles.line} />
-        <View style={styles.footer}>
-          <Text style={styles.questionText}>Don't have an account?</Text>
-          <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
-            <Text style={styles.actionText}>Sign up</Text>
-          </TouchableOpacity>
+        <View style={styles.footerContainer}>
+          <View style={styles.footer}>
+            <Footer 
+              action={() => navigation.navigate('SignUp')}
+              firstText="Don't have an account?"
+              secondText="Sign up"
+            />
+          </View>
         </View>
-      </View>
+        </ScrollView>
     </View>
+
   );
 }
 
@@ -51,10 +53,12 @@ const styles = StyleSheet.create({
   safeContainer: {
     flex: 1,
     backgroundColor: Colors.background,
+    alignContent: 'center',
   },
   container: {
    alignItems: "center",
    alignContent: 'center',
+   justifyContent: 'center',
    marginTop: 170,
   },
   title: {
@@ -68,28 +72,16 @@ const styles = StyleSheet.create({
     alignContent: 'center',
   },
 
-  footerContainer: {
-    padding: 10,
-    width: "100%",
-    position: "absolute",
+  footerContainer:{
+    marginTop: 200,
+    height: 50,
+    marginBottom: 40,
     bottom: 0,
-    marginBottom: 30,
+    width: '100%',
   },
-  footer: {
+  footer:{
     flexDirection: "row",
     justifyContent: "center",
-  },
-  questionText: {
-    color: Colors.whiteish,
-  },
-  actionText: {
-    marginLeft: 5,
-    color: Colors.primary100,
-    fontWeight: "bold",
-  },
-  line: {
-    borderBottomWidth: 0.7,
-    borderBottomColor: Colors.primary100,
-    marginBottom: 20,
+    alignItems: "center",
   },
 });
