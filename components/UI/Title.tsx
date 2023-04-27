@@ -1,6 +1,6 @@
 import { Text, StyleSheet } from 'react-native';
 import Colors from '../../constants/colors'
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { loadFonts, Fonts } from '../../constants/fonts';
 
 function Title({children}: any) {
@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
         color: Colors.primary100,
         fontSize: 36,
         textTransform: 'uppercase',
+        // fontWeight: '700',
         fontFamily: Fonts.KhulaExtraBold,
     }
 })

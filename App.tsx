@@ -4,11 +4,16 @@ import SignUpScreen from "./screens/SignUpScreen";
 import HomeScreen from "./screens/HomeScreen";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
+import { loadFonts } from "./constants/fonts";
+import { useEffect } from "react";
 
 
 const Stack = createStackNavigator();
 
 export default function App() {
+
+  useEffect(() => { loadFonts(); }, []);
+  
   return (/*
     <NavigationContainer>
       <Stack.Navigator>

@@ -1,6 +1,7 @@
 import { View, TextInput, StyleSheet, Image, ImageSourcePropType } from "react-native";
 import Colors from "../../constants/colors";
-import { Fonts } from "../../constants/fonts";
+import { Fonts, loadFonts } from "../../constants/fonts";
+import { useEffect } from "react";
 
 type Props = {
   image: ImageSourcePropType,
@@ -14,6 +15,8 @@ type Props = {
 
 
 function Input({placeholder, value, secure, onChangeText, onFocus, error, image}: Props, {style}: any) {
+
+  useEffect(() => { loadFonts(); }, []);
 
   return (
     <View style={[styles.inputContainer, style, error && styles.inputError]}>

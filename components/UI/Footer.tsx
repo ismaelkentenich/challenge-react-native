@@ -9,6 +9,7 @@ type Props = {
 };
 
 function Footer({ action, firstText, secondText }: Props) {
+
   return (
     <View style={styles.footerContainer}>
       <View style={styles.line} />
