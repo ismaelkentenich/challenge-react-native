@@ -6,8 +6,6 @@ import Colors from "../constants/colors";
 import Title from "../components/UI/Title";
 import LoginForm from "../components/Auth/LoginForm";
 
-import { useNavigation } from '@react-navigation/native';
-import SignUpScreen from "./SignUpScreen";
 import { StackNavigationProp } from '@react-navigation/stack';
 
 type RootStackParamList = {
@@ -19,6 +17,8 @@ type LoginScreenNavigationProp = StackNavigationProp<RootStackParamList, 'SignUp
 
 type Props = { navigation: LoginScreenNavigationProp};
 
+
+
 function LoginScreen({navigation}: Props) {
   
   return (
@@ -28,10 +28,9 @@ function LoginScreen({navigation}: Props) {
         <View style={styles.titleContainer}>
           <Title style={styles.title}>Welcome</Title>
         </View>
+        <View style={styles.formContainer}>
           <LoginForm />
-        <View>
-          <PrimaryButton>LOGIN</PrimaryButton>
-        </View> 
+        </View>
       </View>
       
       <View style={styles.footerContainer}>
@@ -56,7 +55,8 @@ const styles = StyleSheet.create({
   },
   container: {
    alignItems: "center",
-    marginTop: 170,
+   alignContent: 'center',
+   marginTop: 170,
   },
   title: {
     textAlign: "center",
@@ -64,6 +64,11 @@ const styles = StyleSheet.create({
   titleContainer: {
     marginBottom: 80,
   },
+  formContainer: {
+    justifyContent: 'center',
+    alignContent: 'center',
+  },
+
   footerContainer: {
     padding: 10,
     width: "100%",
