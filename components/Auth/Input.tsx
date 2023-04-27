@@ -1,5 +1,6 @@
 import { View, TextInput, StyleSheet, Image, ImageSourcePropType } from "react-native";
 import Colors from "../../constants/colors";
+import { Fonts } from "../../constants/fonts";
 
 type Props = {
   image: ImageSourcePropType,
@@ -42,8 +43,8 @@ const styles = StyleSheet.create({
     height: 55,
     borderRadius: 25,
     padding: 5,
-    marginTop: 10,
-    marginBottom: 10,
+    marginTop: 15,
+    marginBottom: 15,
     borderColor: Colors.primary200,
     borderWidth: 1,
     color: Colors.primary300,
@@ -51,17 +52,17 @@ const styles = StyleSheet.create({
   inputBox: {
     fontSize: 16,
     color: Colors.primary300,
-    //borderColor: Colors.primary200,
     width: '85%',
     height: '100%',
-    borderColor: 'blue',
-    borderWidth: 1,  
+    fontFamily: Fonts.InterRegular, 
+    marginLeft: 6,
   },
   inputError: {
     borderColor: Colors.warning,
   },
   inputImage:{
     margin: 5,
+    marginLeft: 10,
     width: 20,
     height: 20,
     resizeMode: 'contain',

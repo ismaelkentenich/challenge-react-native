@@ -5,6 +5,7 @@ import Colors from '../../constants/colors';
 import PrimaryButton from '../UI/PrimaryButton';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
+import { Fonts } from '../../constants/fonts';
 
 type RootStackParamList = {Home: undefined;};
 
@@ -89,6 +90,7 @@ const styles = StyleSheet.create({
     errorMessage:{
         color: Colors.warning,
         fontSize: 12,
+        fontFamily: Fonts.InterRegular,
     },
     errorContainer: {
         alignSelf: 'flex-start',

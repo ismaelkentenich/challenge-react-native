@@ -20,6 +20,7 @@ function SignUpScreen({navigation}: Props) {
   return (
 
     <View style={styles.safeContainer}>
+      <StatusBar style="light" />
       <View style={styles.backContainer}>
         <TouchableOpacity onPress={() => navigation.navigate("Login")}>
           <Image source={require('../assets/images/arrow.png')} style={styles.arrowButton}/>
@@ -55,13 +56,13 @@ const styles = StyleSheet.create({
   },
   container: {
     alignItems: "center",
-    marginTop: 65,
+    marginTop: 75,
   },
   title: {
     textAlign: "center",
   },
   titleContainer: {
-    marginBottom: 80,
+    marginBottom: 70,
   },
   buttonContainer: {
     marginBottom: 200,
@@ -69,7 +70,7 @@ const styles = StyleSheet.create({
   footerContainer:{
     height: 50,
     marginBottom: 40,
-    marginTop: 95,
+    marginTop: 80,
     bottom: 0,
     width: '100%',
   },

@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
    alignItems: "center",
    alignContent: 'center',
    justifyContent: 'center',
-   marginTop: 170,
+   marginTop: 155,
   },
   title: {
     textAlign: "center",

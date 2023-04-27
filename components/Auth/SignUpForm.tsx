@@ -6,6 +6,7 @@ import Colors from '../../constants/colors';
 import PrimaryButton from '../UI/PrimaryButton';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
+import { Fonts } from '../../constants/fonts';
 
 type RootStackParamList = {Home: undefined;};
 
@@ -129,7 +130,7 @@ function SignUpForm(){
                 </View>
             </View>
 
-            <PrimaryButton onPress={handleSignUp}> Create Account </PrimaryButton>
+            <PrimaryButton onPress={handleSignUp} style={styles.button}> Create Account </PrimaryButton>
 
         </View>
     );
@@ -138,14 +139,10 @@ function SignUpForm(){
 export default SignUpForm;
 
 const styles = StyleSheet.create({
-    container:{
-        //justifyContent:'center',
-        //alignContent:'center',
-        //alignItems: 'center',
-    },
     errorMessage:{
         color: Colors.warning,
         fontSize: 12,
+        fontFamily: Fonts.InterRegular,
     },
     errorContainer: {
         alignSelf: 'flex-start',
@@ -167,10 +164,14 @@ const styles = StyleSheet.create({
       checkBoxText: {
         color: Colors.whiteish,
         padding: 2,
-        fontSize: 9,
+        fontSize: 12,
+        fontFamily: Fonts.InterRegular,
       },
       checkBoxTerms: {
-        fontWeight: "bold",
+        fontFamily: Fonts.InterSemiBold,
         textDecorationLine: 'underline',
       },
+      button:{
+        marginTop: 10,
+      }
 })

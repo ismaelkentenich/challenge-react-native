@@ -1,6 +1,8 @@
 import { View, Text, StyleSheet, useWindowDimensions } from 'react-native';
 import { StatusBar } from "expo-status-bar";
 import Colors from "../constants/colors";
+import { Fonts } from '../constants/fonts';
+import { ScrollView } from 'react-native-gesture-handler';
 
 function HomeScreen(){
     const { width, height } = useWindowDimensions();
@@ -11,11 +13,27 @@ function HomeScreen(){
         <View style={styles.safeContainer}>
             <StatusBar style="light" />
             <View style={styles.container}>
-                <Text style={styles.title}>Home</Text>
-                <View style={styles.cardContainer}>
-                    <View style={[styles.card, { width: cardWidth, height: cardHeight }]} ></View>
-                    <View style={[styles.card, { width: cardWidth, height: cardHeight }]} ></View>
-                </View>
+                <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+                    <Text style={styles.title}>Home</Text>
+                    <View style={styles.cardContainer}>
+                        <View style={[styles.card, { width: cardWidth, height: cardHeight }]} ></View>
+                        <View style={[styles.card, { width: cardWidth, height: cardHeight }]} ></View>
+                    </View>
+                    <View style={styles.cardContainer}>
+                        <View style={[styles.card, { width: cardWidth, height: cardHeight }]} ></View>
+                        <View style={[styles.card, { width: cardWidth, height: cardHeight }]} ></View>
+                    </View>
+                    <View style={styles.cardContainer}>
+                        <View style={[styles.card, { width: cardWidth, height: cardHeight }]} ></View>
+                        <View style={[styles.card, { width: cardWidth, height: cardHeight }]} ></View>
+                    </View>
+                    <View style={styles.cardContainer}>
+                        <View style={[styles.card, { width: cardWidth, height: cardHeight }]} ></View>
+                        <View style={[styles.card, { width: cardWidth, height: cardHeight }]} ></View>
+                    </View>
+
+                </ScrollView>
+                
             </View>
         </View>
     );
@@ -38,6 +56,7 @@ const styles = StyleSheet.create({
         color: Colors.primary100,
         fontSize: 20,
         textTransform: 'uppercase',
+        fontFamily: Fonts.InterRegular,
     },
     card: {
         backgroundColor: Colors.whiteish,

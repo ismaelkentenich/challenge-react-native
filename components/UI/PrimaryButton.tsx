@@ -1,6 +1,7 @@
 import { View, Text, Pressable, StyleSheet } from "react-native";
 import React, { useState } from 'react';
 import Colors from "../../constants/colors";
+import { Fonts } from "../../constants/fonts";
 
 function PrimaryButton({ children, onPress}: any) {
   const [pressed, setPressed] = useState(false);
@@ -38,6 +39,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     fontSize: 16,
     textTransform: "uppercase",
+    fontFamily: Fonts.InterRegular,
   },
   pressed: {
     opacity: 0.7,  
